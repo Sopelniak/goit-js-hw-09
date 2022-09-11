@@ -1,6 +1,7 @@
 import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
 import Notiflix from 'notiflix';
+
 Notiflix.Notify.init({
   fontSize: '20px',
   width: '400px',
@@ -48,8 +49,8 @@ const options = {
   minuteIncrement: 1,
   onClose(selectedDates) {
     if (selectedDates[0] <= new Date()) {
-      Notiflix.Notify.failure('Please choose a date in the future');
-      // window.alert('Please choose a date in the future');
+      Notiflix.Notify.failure('Please choose a date in the future!');
+      // window.alert('Please choose a date in the future!');
     } else {
       Notiflix.Notify.success('👍👍👍👍👍👍👍👍👍👍👍👍');
 
