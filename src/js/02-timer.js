@@ -5,7 +5,7 @@ import Notiflix from 'notiflix';
 Notiflix.Notify.init({
   fontSize: '20px',
   width: '400px',
-  position: 'center-top',
+  position: 'center-center',
 });
 
 const inputEl = document.querySelector('#datetime-picker');
