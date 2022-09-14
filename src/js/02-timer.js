@@ -11,10 +11,7 @@ Notiflix.Notify.init({
 const inputEl = document.querySelector('#datetime-picker');
 const btnEl = document.querySelector('button[data-start]');
 const timerEl = document.querySelector('.timer');
-const spanDaysEl = document.querySelector('span[data-days]');
-const spanHoursEl = document.querySelector('span[data-hours]');
-const spanMinutesEl = document.querySelector('span[data-minutes]');
-const spanSecondsEl = document.querySelector('span[data-seconds]');
+
 let timerId = null;
 let ms = 0;
 let selectedDate;
@@ -69,10 +66,11 @@ function onBtnStartClick() {
       timerEl.style.backgroundColor = getRandomHexColor();
 
       const timeToEndObject = convertMs(ms);
-      spanDaysEl.textContent = addLeadingZero(timeToEndObject.days);
-      spanHoursEl.textContent = addLeadingZero(timeToEndObject.hours);
-      spanMinutesEl.textContent = addLeadingZero(timeToEndObject.minutes);
-      spanSecondsEl.textContent = addLeadingZero(timeToEndObject.seconds);
+      for (let key in timeToEndObject) {
+        document.querySelector(`[data-${key}]`).textContent = addLeadingZero(
+          timeToEndObject[key]
+        );
+      }
     } else {
       clearInterval(timerId);
     }
